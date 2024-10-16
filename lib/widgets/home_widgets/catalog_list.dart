@@ -82,7 +82,7 @@ super(key: key);
                           const StadiumBorder(),
                         )
                       ),
-                       child: "Buy".text.white.make(),
+                       child: "Add to cart".text.white.make(),
                        )
                     ],
                   ).pOnly(right: 8.0)

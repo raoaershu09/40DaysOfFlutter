@@ -1,4 +1,6 @@
 
+import 'package:catalog/utils/routes.dart';
+
 import 'package:flutter/cupertino.dart';
 
 import 'package:flutter/material.dart';
@@ -53,7 +55,7 @@ final String name = "Codepur";
     return Scaffold(
       backgroundColor: MyTheme.creamColor,
       floatingActionButton: FloatingActionButton(
-      onPressed: () {},
+      onPressed: () => Navigator.pushNamed(context, MyRoutes.cartRoute),
       backgroundColor: MyTheme.darkBluishColor,
       foregroundColor: Colors.white,
       child: const Icon(CupertinoIcons.cart),

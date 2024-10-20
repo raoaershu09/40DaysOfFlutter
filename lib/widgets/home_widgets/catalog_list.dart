@@ -51,12 +51,13 @@ super(key: key);
   @override
   Widget build(BuildContext context) {
     return VxBox(
+      
       child: Row(
         children: [
           Hero(
             tag: Key(catalog.id.toString()),
             child: CatalogImage( 
-              image: catalog.image,
+              image: catalog.image, 
               key: ValueKey(catalog.image),
               ),
           ),

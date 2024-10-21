@@ -1,13 +1,10 @@
 class CatalogModel {
-  static List<Item> items = [
-    Item(
-       id: 1, 
-       name: "iPhone 12 Pro",
-       desc: "Apple iPhone 12th generation",
-       price: 999,
-       color: "#33505a",
-       image: "https://regen.pk/cdn/shop/products/iphone-12-pro-321394_ee217b80-7d48-48ea-bae8-710b41bca458.jpg?v=1674907301")
-  ];
+static List<Item>items = [];
+
+  static Item getById(int id) => 
+  items.firstWhere((element) => element.id == id, orElse:null);
+  static Item getByPosition(int pos) => items[pos];
+
 }
 
 class Item {

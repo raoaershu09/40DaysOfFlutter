@@ -8,16 +8,20 @@ class MyTheme{
   static ThemeData get lightTheme => ThemeData(
     primarySwatch: Colors.deepPurple,
     fontFamily: GoogleFonts.poppins().fontFamily,
+       colorScheme: ColorScheme.light().copyWith(
+        secondary: Colors.white
+      ),
     //  cardColor: Colors.white,
     //   canvasColor: darkCreamColor,
-    //   buttonTheme: ButtonThemeData(
-    //     buttonColor: darkBluishColor,
-    //   ),
+      buttonTheme: ButtonThemeData(
+        buttonColor: darkBluishColor,
+      ),
     appBarTheme: const AppBarTheme(
     color: Colors.white,
     elevation: 0.0,
     iconTheme: IconThemeData(color: Colors.black),
       ),
+     
       );
       
       static ThemeData get darkTheme => ThemeData(
@@ -33,10 +37,6 @@ class MyTheme{
       // buttonTheme: ButtonThemeData(
       //   buttonColor: lightBluishColor,
       // ),
-      // colorScheme: ColorScheme.light().copyWith(
-      //   secondary: Colors.white
-      // ),
-      
     );
 
       static Color creamColor = const Color(0xfff5f5f5);

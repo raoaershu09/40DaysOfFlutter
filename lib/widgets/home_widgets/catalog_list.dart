@@ -1,3 +1,5 @@
+import 'package:catalog/models/cart.dart';
+
 import 'package:flutter/material.dart';
 
 import 'package:catalog/models/catalog.dart';
@@ -73,18 +75,7 @@ super(key: key);
                     alignment: MainAxisAlignment.spaceBetween,
                     buttonPadding: EdgeInsets.zero,
                     children: [
-                      "\$${catalog.price}".text.bold.xl.make(),
-                      ElevatedButton(onPressed:() {},
-                      style: ButtonStyle(
-                        backgroundColor: WidgetStateProperty.all(
-                          MyTheme.darkBluishColor,
-                        ),
-                        shape: WidgetStateProperty.all(
-                          const StadiumBorder(),
-                        )
-                      ),
-                       child: "Add to cart".text.white.make(),
-                       )
+                      "\$${catalog.price}".text.bold.xl.make(),                   _AddToCart(catalog : catalog, key: ValueKey(catalog.id))
                     ],
                   ).pOnly(right: 8.0)
                 ],
@@ -93,5 +84,41 @@ super(key: key);
         ], 
       ),
     ).white.rounded.square(150).make().py16();
+  }
+}
+
+class _AddToCart extends StatefulWidget {
+  final Item catalog;
+  const _AddToCart({
+    required Key key, required this.catalog,
+    }) :super(key: key);
+
+  @override
+  State<_AddToCart> createState() => _AddToCartState();
+}
+
+class _AddToCartState extends State<_AddToCart> {
+    bool isAdded = false;
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      onPressed:() {
+        isAdded = isAdded.toggle();
+        final _catalog = CatalogModel();
+        final _cart = CartModel();
+        _cart.catalog = CatalogModel();
+        _cart.add(widget.catalog);
+        setState(() {});
+      },
+    style: ButtonStyle(
+      backgroundColor: WidgetStateProperty.all(
+        MyTheme.darkBluishColor,
+      ),
+      shape: WidgetStateProperty.all(
+        const StadiumBorder(),
+      )
+    ),
+     child: isAdded ? Icon(Icons.done) : "Add to cart".text.white.make(), 
+     );
   }
 }

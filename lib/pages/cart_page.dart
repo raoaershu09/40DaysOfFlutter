@@ -1,4 +1,5 @@
 import 'package:catalog/models/cart.dart';
+
 import 'package:catalog/widgets/themes.dart';
 
 import 'package:flutter/material.dart';
@@ -67,13 +68,18 @@ class _CartListState extends State<_CartList> {
   final _cart = CartModel();
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
+    return _cart.items.isEmpty?"Nothing to show".text.xl3.makeCentered()
+   : ListView.builder(
       itemCount: _cart.items?.length,
       itemBuilder: (context, index) => ListTile(
         leading: Icon(Icons.done),
         trailing: IconButton(
           icon: Icon(Icons.remove_circle_outline),
-          onPressed: () {},
+          onPressed: () {
+            _cart.remove(_cart.items[index]);
+            setState(() {});
+
+          },
           ),
           title: _cart.items[index].name.text.make(),
       ),
